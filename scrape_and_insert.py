@@ -24,7 +24,7 @@ TABLE_TAGS = soup.find_all("table")
 COVID_STATISTICS = TABLE_TAGS[1].find_all('td')
 
 # statistics
-NEW_CASES = int(re.search(r"\d,\d{1,3}(?=.additional)", paragraph_tags[6].text).group().replace(",", ""))
+NEW_CASES = int(re.search(r"\d,?\d{1,3}(?=.additional)", paragraph_tags[6].text).group().replace(",", ""))
 TOTAL_DEATHS = int(COVID_STATISTICS[-2].text)
 TOTAL_CASES = int(COVID_STATISTICS[-3].text.replace("*", "").replace(",", "").strip())
 image_tags = soup.find_all("img")
